@@ -7,12 +7,18 @@ interface EventListType {
   items: EventType[];
 }
 
-const EventList: React.FC<EventListType> = (props) => {
-  const { items } = props;
+const EventList: React.FC<EventListType> = ({ items }) => {
   return (
     <ul>
       {items.map((item) => (
-        <EventItem />
+        <EventItem
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          image={item.image}
+          date={item.date}
+          location={item.location}
+        />
       ))}
     </ul>
   );

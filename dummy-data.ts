@@ -1,3 +1,17 @@
+interface DateType {
+  year: number;
+  month: number;
+}
+
+export interface EventType {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  image: string;
+  isFeatured: boolean;
+}
+
 const DUMMY_EVENTS = [
   {
     id: "e1",
@@ -25,11 +39,6 @@ const DUMMY_EVENTS = [
   },
 ];
 
-interface DateFilterType {
-  year: number;
-  month: number;
-}
-
 export function getFeaturedEvents() {
   return DUMMY_EVENTS.filter((event) => event.isFeatured);
 }
@@ -38,7 +47,7 @@ export function getAllEvents() {
   return DUMMY_EVENTS;
 }
 
-export function getFilteredEvents(dateFilter: DateFilterType) {
+export function getFilteredEvents(dateFilter: DateType) {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {

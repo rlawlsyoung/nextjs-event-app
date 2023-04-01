@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { MdDateRange, MdPlace } from "react-icons/md";
 
 import Button from "../ui/Button";
 import { EventType } from "@/dummy-data";
@@ -22,9 +23,11 @@ const EventItem: React.FC<EventType> = ({
         <div className={classes.summary}>
           <h2>{title}</h2>
           <div className={classes.date}>
+            <MdDateRange />
             <time>{humanReadableDate}</time>
           </div>
           <div className={classes.address}>
+            <MdPlace />
             <address>{location}</address>
           </div>
         </div>

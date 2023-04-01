@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { EventType } from "@/dummy-data";
 
+import classes from "./eventItem.module.css";
+
 const EventItem: React.FC<EventType> = ({
   id,
   title,
@@ -13,19 +15,19 @@ const EventItem: React.FC<EventType> = ({
   const humanReadableDate = new Date(date).toLocaleDateString("ko-KR");
 
   return (
-    <li>
+    <li className={classes.item}>
       <img src={"/" + image} alt={title} />
-      <div>
-        <div>
+      <div className={classes.content}>
+        <div className={classes.summary}>
           <h2>{title}</h2>
-          <div>
+          <div className={classes.date}>
             <time>{humanReadableDate}</time>
           </div>
-          <div>
+          <div className={classes.address}>
             <address>{location}</address>
           </div>
         </div>
-        <div>
+        <div className={classes.actions}>
           <Link href={`/events/${id}`}>EXPLORE EVENT</Link>
         </div>
       </div>

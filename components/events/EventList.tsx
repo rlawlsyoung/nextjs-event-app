@@ -3,13 +3,15 @@ import React from "react";
 import EventItem from "./EventItem";
 import { EventType } from "@/dummy-data";
 
+import classes from "./eventList.module.css";
+
 interface EventListType {
   items: EventType[];
 }
 
 const EventList: React.FC<EventListType> = ({ items }) => {
   return (
-    <ul>
+    <ul className={classes.list}>
       {items.map((item) => (
         <EventItem
           key={item.id}

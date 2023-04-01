@@ -6,7 +6,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>HOME</h1>
       <EventList items={featuredEvents} />
     </div>
   );

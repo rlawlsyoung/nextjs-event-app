@@ -1,5 +1,9 @@
 import { useRouter } from "next/router";
 
+import EventSummary from "@/components/eventDetail/EventSummary";
+import EventLogistics from "@/components/eventDetail/EventLogistics";
+import EventContent from "@/components/eventDetail/EventContent";
+
 import { getEventById } from "@/dummy-data";
 
 const EventsDetailPage = () => {
@@ -13,13 +17,7 @@ const EventsDetailPage = () => {
 
   const event = getEventById(eventId());
 
-  return event ? (
-    <div>
-      <h1>EventsDetail</h1>
-    </div>
-  ) : (
-    <div>No event found!</div>
-  );
+  return event ? <></> : <div>No event found!</div>;
 };
 
 export default EventsDetailPage;

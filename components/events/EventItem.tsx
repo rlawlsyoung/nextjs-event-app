@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
+import Button from "../ui/Button";
 import { EventType } from "@/dummy-data";
 
 import classes from "./eventItem.module.css";
@@ -28,7 +29,7 @@ const EventItem: React.FC<EventType> = ({
           </div>
         </div>
         <div className={classes.actions}>
-          <Link href={`/events/${id}`}>EXPLORE EVENT</Link>
+          <Button link={"/" + id}>EXPLORE EVENT</Button>
         </div>
       </div>
     </li>

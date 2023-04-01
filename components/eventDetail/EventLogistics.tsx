@@ -3,7 +3,7 @@ import { MdDateRange, MdPlace } from "react-icons/md";
 
 import LogisticsItem from "./LogisticsItem";
 
-import classes from "./event-logistics.module.css";
+import classes from "./eventLogistics.module.css";
 
 interface EventLogisticsType {
   date: string;
@@ -18,12 +18,11 @@ const EventLogistics: React.FC<EventLogisticsType> = ({
   image,
   imageAlt,
 }) => {
-  const humanReadableDate = new Date(date).toLocaleDateString("en-US", {
+  const humanReadableDate = new Date(date).toLocaleDateString("ko-KR", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-  const addressText = address.replace(", ", "\n");
 
   return (
     <section className={classes.logistics}>
@@ -35,9 +34,8 @@ const EventLogistics: React.FC<EventLogisticsType> = ({
           <time>{humanReadableDate}</time>
         </LogisticsItem>
         <LogisticsItem icon={<MdPlace />}>
-          <address>{addressText}</address>
+          <address>{address}</address>
         </LogisticsItem>
-        /
       </ul>
     </section>
   );

@@ -32,7 +32,7 @@ const EventItem: React.FC<EventType> = ({
           </div>
         </div>
         <div className={classes.actions}>
-          <Button link={"/" + id}>EXPLORE EVENT</Button>
+          <Button link={"/events/" + id}>EXPLORE EVENT</Button>
         </div>
       </div>
     </li>

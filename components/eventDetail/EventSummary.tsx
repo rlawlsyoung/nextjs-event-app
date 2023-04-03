@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./eventSummary.module.css";
 
 interface EventSummaryType {

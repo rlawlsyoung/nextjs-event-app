@@ -1,5 +1,3 @@
-import React from "react";
-
 import MainHeader from "./MainHeader";
 
 interface LayoutType {

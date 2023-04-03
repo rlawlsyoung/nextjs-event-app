@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./eventContent.module.css";
 
 interface EventContentType {

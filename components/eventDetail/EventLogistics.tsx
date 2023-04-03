@@ -1,4 +1,3 @@
-import React from "react";
 import { MdDateRange, MdPlace } from "react-icons/md";
 
 import LogisticsItem from "./LogisticsItem";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./logisticsItem.module.css";
 
 interface LogisticsItem {

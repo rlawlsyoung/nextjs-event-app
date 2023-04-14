@@ -2,7 +2,11 @@ import EventSummary from "@/components/eventDetail/EventSummary";
 import EventLogistics from "@/components/eventDetail/EventLogistics";
 import EventContent from "@/components/eventDetail/EventContent";
 
-import { getEventById, getAllEvents } from "@/helpers/api-util";
+import {
+  getEventById,
+  getAllEvents,
+  getFeaturedEvents,
+} from "@/helpers/api-util";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { EventType } from "@/helpers/api-util";
 
@@ -11,8 +15,6 @@ interface EventsDetailPageProps {
 }
 
 const EventsDetailPage: React.FC<EventsDetailPageProps> = ({ event }) => {
-  console.log(event);
-
   return event ? (
     <>
       <EventSummary title={event.title} />
@@ -27,7 +29,7 @@ const EventsDetailPage: React.FC<EventsDetailPageProps> = ({ event }) => {
       </EventContent>
     </>
   ) : (
-    <div>No event found!</div>
+    <div className="center">Loading...</div>
   );
 };
 
@@ -35,21 +37,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const eventId = params?.eventId;
   const event = await getEventById(eventId);
 
+  if (!event) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       event: event,
     },
+    revalidate: 60,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const events = await getAllEvents();
+  const events = await getFeaturedEvents();
 
   const paths = events.map((event) => ({ params: { eventId: event.id } }));
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 };
 

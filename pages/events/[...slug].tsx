@@ -7,6 +7,10 @@ const FilterEventsPage = () => {
 
   const filterData = router.query.slug;
 
+  if (!filterData) {
+    return <p>Loading..</p>;
+  }
+
   const filteredYear = Number(filterData![0]);
   const filteredMonth = Number(filterData![1]);
 

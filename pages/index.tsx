@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { getFeaturedEvents } from "@/helpers/api-util";
 import EventList from "@/components/events/EventList";
 import { GetStaticProps } from "next";
@@ -10,6 +12,13 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ events }) => {
   return (
     <div>
+      <Head>
+        <title>NextJS Event</title>
+        <meta
+          name="description"
+          content="Find a lot of punk rock show in Korea"
+        />
+      </Head>
       <EventList items={events} />
     </div>
   );

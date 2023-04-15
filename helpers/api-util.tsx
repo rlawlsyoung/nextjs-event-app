@@ -35,3 +35,23 @@ export const getEventById = async (id: string | string[] | undefined) => {
   const allEvents = await getAllEvents();
   return allEvents.find((event) => event.id === id);
 };
+
+interface DateType {
+  year: number;
+  month: number;
+}
+
+export const getFilteredEvents = async (dateFilter: DateType) => {
+  const { year, month } = dateFilter;
+
+  const allEvents = await getAllEvents();
+
+  let filteredEvents = allEvents.filter((event) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
+    );
+  });
+
+  return filteredEvents;
+};

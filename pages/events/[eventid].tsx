@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import EventSummary from "@/components/eventDetail/EventSummary";
 import EventLogistics from "@/components/eventDetail/EventLogistics";
 import EventContent from "@/components/eventDetail/EventContent";
@@ -17,6 +19,10 @@ interface EventsDetailPageProps {
 const EventsDetailPage: React.FC<EventsDetailPageProps> = ({ event }) => {
   return event ? (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}

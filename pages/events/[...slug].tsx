@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import useSWR from "swr";
 
 import EventList from "@/components/events/EventList";
@@ -60,6 +61,13 @@ const FilterEventsPage = () => {
     </p>
   ) : (
     <div>
+      <Head>
+        <title>Filtered Events</title>
+        <meta
+          name="description"
+          content={`All events for ${filteredYear}/${filteredMonth}`}
+        />
+      </Head>
       <EventList items={filteredEvents} />
     </div>
   );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MdDateRange, MdPlace } from "react-icons/md";
 
 import LogisticsItem from "./LogisticsItem";
@@ -26,7 +27,7 @@ const EventLogistics: React.FC<EventLogisticsType> = ({
   return (
     <section className={classes.logistics}>
       <div className={classes.image}>
-        <img src={`/${image}`} alt={imageAlt} />
+        <Image src={`/${image}`} alt={imageAlt} width={360} height={360} />
       </div>
       <ul className={classes.list}>
         <LogisticsItem icon={<MdDateRange />}>

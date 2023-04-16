@@ -22,6 +22,13 @@ const EventsPage: React.FC<EventsPageProps> = ({ events }) => {
 
   return (
     <>
+      <Head>
+        <title>All Events</title>
+        <meta
+          name="description"
+          content="Find a lot of punk rock concert in Korea"
+        />
+      </Head>
       <EventsSearch onSearch={findEventsHandler} />
       <EventList items={events} />
     </>

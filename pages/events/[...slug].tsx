@@ -32,8 +32,20 @@ const FilterEventsPage = () => {
     }
   }, [data]);
 
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name="description" content={`A list of filtered events.`} />
+    </Head>
+  );
+
   if (!loadedEvents) {
-    return <p className="center">Loading...</p>;
+    return (
+      <>
+        {pageHeadData}
+        <p className="center">Loading...</p>
+      </>
+    );
   }
 
   const filteredYear = Number(filterData![0]);
@@ -56,20 +68,17 @@ const FilterEventsPage = () => {
     !filteredEvents ||
     filteredEvents.length === 0 ||
     error ? (
-    <p className="center">
-      필터에 해당하는 이벤트가 없거나 필터 값이 잘못되었습니다. (혹은 오류)
-    </p>
+    <>
+      {pageHeadData}
+      <p className="center">
+        필터에 해당하는 이벤트가 없거나 필터 값이 잘못되었습니다. (혹은 오류)
+      </p>
+    </>
   ) : (
-    <div>
-      <Head>
-        <title>Filtered Events</title>
-        <meta
-          name="description"
-          content={`All events for ${filteredYear}/${filteredMonth}`}
-        />
-      </Head>
+    <>
+      {pageHeadData}
       <EventList items={filteredEvents} />
-    </div>
+    </>
   );
 };
 
